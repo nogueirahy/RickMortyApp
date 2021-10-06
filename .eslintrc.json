@@ -1,0 +1,107 @@
+{
+  "env": {
+    "es6": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "__DEV__": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "eslint-plugin-import-helpers"
+  ],
+  "rules": {
+    // Prettier
+    "prettier/prettier": "error",
+
+    // Global
+    "no-console": ["warn", { "allow": ["tron"] }],
+    "spaced-comment": ["error", "always", { "markers": ["/"] }],
+    "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
+    "no-unused-expressions": "off",
+    "no-unused-vars": "off",
+    "global-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-use-before-define": "off",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "/^react/",
+          "/^react-native/",
+          "module",                                 
+          "/^./styles/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+
+    // TypeScript
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
+
+    // React
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".ts", ".tsx"]
+      }
+    ],
+
+    // React Hooks
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
+    // Complexity
+    "max-depth": ["error", {"max": 3}],
+    "max-len": ["error", { "code": 100 }],
+    "max-statements": ["error", 4, {"ignoreTopLevelFunctions": true}],
+    "complexity": ["error", {"max": 4}],
+    "max-lines": ["warn", {"max": 300, "skipBlankLines": true, "skipComments": true}]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["./src"]
+      },
+      "babel-module": {}
+    }
+  }
+}
