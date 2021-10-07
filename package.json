@@ -13,9 +13,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.16",
     "@react-navigation/native": "^6.0.4",
     "@react-navigation/native-stack": "^6.2.2",
     "fbjs": "^3.0.0",
+    "graphql": "^15.6.1",
     "react": "17.0.2",
     "react-native": "0.66.0",
     "react-native-color-matrix-image-filters": "^5.2.10",
