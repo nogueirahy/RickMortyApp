@@ -6,7 +6,6 @@ import styles from './styles';
 export default ({ item }: { item: any }) => {
   return (
     <>
-      <View style={styles.divider} />
       <Pressable style={styles.contentContainer} onPress={() => undefined}>
         <View style={styles.containerImage}>
           <StatusImage status={item.status} image={item.image} />

@@ -1,9 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  divider: {
-    marginVertical: 16,
-  },
   contentContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -13,7 +10,7 @@ export default StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1,
     borderColor: '#7cbc6c',
-    backgroundColor: '#c7fa6c',
+    backgroundColor: '#c1f762',
   },
   containerImage: {
     height: 84,
