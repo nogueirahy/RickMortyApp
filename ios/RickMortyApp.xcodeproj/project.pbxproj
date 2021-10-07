@@ -14,6 +14,8 @@
 		6172F2D35A4C3AA820D92908 /* libPods-RickMortyApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-RickMortyApp.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-RickMortyApp-RickMortyAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-RickMortyApp-RickMortyAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CE4F555F270E8A4A00E70E80 /* Overpass-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE4F555E270E8A4A00E70E80 /* Overpass-Regular.ttf */; };
+		CE4F5567270E8BD400E70E80 /* Overpass-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE4F5564270E8BD400E70E80 /* Overpass-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RickMortyApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-RickMortyApp-RickMortyAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RickMortyApp-RickMortyAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-RickMortyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickMortyApp.debug.xcconfig"; path = "Target Support Files/Pods-RickMortyApp/Pods-RickMortyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		CE4F555E270E8A4A00E70E80 /* Overpass-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Overpass-Regular.ttf"; path = "../assets/fonts/Overpass-Regular.ttf"; sourceTree = "<group>"; };
+		CE4F5564270E8BD400E70E80 /* Overpass-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Overpass-Bold.ttf"; path = "../assets/fonts/Overpass-Bold.ttf"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-RickMortyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickMortyApp.release.xcconfig"; path = "Target Support Files/Pods-RickMortyApp/Pods-RickMortyApp.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -116,6 +120,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				CE4F5564270E8BD400E70E80 /* Overpass-Bold.ttf */,
+				CE4F555E270E8A4A00E70E80 /* Overpass-Regular.ttf */,
 				13B07FAE1A68108700A75B9A /* RickMortyApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* RickMortyAppTests */,
@@ -145,7 +151,6 @@
 				6C97AB639B58BBB4B15BBE30 /* Pods-RickMortyApp-RickMortyAppTests.debug.xcconfig */,
 				1D0AE47A65C8663E3B452821 /* Pods-RickMortyApp-RickMortyAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -243,6 +248,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4F5567270E8BD400E70E80 /* Overpass-Bold.ttf in Resources */,
+				CE4F555F270E8A4A00E70E80 /* Overpass-Regular.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

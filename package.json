@@ -13,12 +13,19 @@
     "test": "jest"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.16",
     "@react-navigation/native": "^6.0.4",
     "@react-navigation/native-stack": "^6.2.2",
+    "fbjs": "^3.0.0",
+    "graphql": "^15.6.1",
     "react": "17.0.2",
     "react-native": "0.66.0",
+    "react-native-color-matrix-image-filters": "^5.2.10",
+    "react-native-fast-image": "^8.5.11",
     "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.8.0"
+    "react-native-screens": "^3.8.0",
+    "react-native-svg": "^12.1.1",
+    "rn-placeholder": "^3.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
