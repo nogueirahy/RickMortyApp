@@ -44,4 +44,14 @@ export default StyleSheet.create({
     fontSize: 16,
     color: '#314e1c',
   },
+  /* Skeleton */
+  skeletonContainer: {
+    paddingVertical: 16,
+  },
+  skeletonMedia: {
+    marginRight: 8,
+  },
+  skeletonTitleContainer: {
+    marginTop: 12,
+  },
 });

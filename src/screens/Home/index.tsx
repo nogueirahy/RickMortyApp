@@ -6,6 +6,8 @@ import { GET_CHARACTERS } from '../../service/graphql/homeQuery';
 import useNextPage from '../../hooks/useNextPage';
 
 import CardCharacter from '../../components/CardCharacter';
+import CardCharacterSkeleton from '../../components/CardCharacter/Skeleton';
+
 import styles from './style';
 interface IItem {
   name: string;
@@ -44,7 +46,6 @@ export default () => {
 
   const doRequestNextPage = useCallback(
     async (page: number) => {
-      setTotalPages(30);
       refetch({ page });
     },
     [refetch],
@@ -67,10 +68,19 @@ export default () => {
       initialNumToRender={6}
       ItemSeparatorComponent={() => <View style={styles.divider} />}
       showsVerticalScrollIndicator={false}
+      ListEmptyComponent={
+        <>
+          <CardCharacterSkeleton />
+          <CardCharacterSkeleton />
+          <CardCharacterSkeleton />
+          <CardCharacterSkeleton />
+          <CardCharacterSkeleton />
+        </>
+      }
       data={mergeData}
       renderItem={renderItem}
       onEndReached={callNextPage}
-      onEndReachedThreshold={0.3}
+      onEndReachedThreshold={0.4}
       keyExtractor={(item: IItem) => item.id}
     />
   );
