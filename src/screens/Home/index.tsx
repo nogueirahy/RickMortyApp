@@ -1,14 +1,13 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FlatList, View } from 'react-native';
 
 import { useQuery } from '@apollo/client';
 import { GET_CHARACTERS } from '../../service/graphql/homeQuery';
-import useNextPage from '../../hooks/useNextPage';
-
 import CardCharacter from '../../components/CardCharacter';
 import CardCharacterSkeleton from '../../components/CardCharacter/Skeleton';
 
 import styles from './style';
+
 interface IItem {
   name: string;
   status: string;
@@ -25,40 +24,43 @@ const DEFAULT_PAGE = 1;
 
 export default () => {
   const scrollRef = useRef(null);
-  const [mergeData, setMergeDate] = useState<any>([]);
-  const [totalPages, setTotalPages] = useState(DEFAULT_PAGE);
 
-  const { data, loading, refetch } = useQuery(GET_CHARACTERS, {
+  const [mergedData, setMergedData] = useState<any>([]);
+  const [nextPage, setNextPage] = useState(2);
+
+  const { data, loading, fetchMore } = useQuery(GET_CHARACTERS, {
     variables: {
       page: DEFAULT_PAGE,
     },
   });
 
   useEffect(() => {
-    const hasData = loading === false && data;
-    if (hasData) {
-      const { results, info } = data?.characters;
-      setMergeDate([...mergeData, ...results]);
-      setTotalPages(info.pages);
+    if (loading && !data) {
+      return;
     }
+
+    setMergedData([...mergedData, ...data.characters?.results]);
+    setNextPage(data.characters?.info?.next);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading, data]);
-
-  const doRequestNextPage = useCallback(
-    async (page: number) => {
-      refetch({ page });
-    },
-    [refetch],
-  );
-
-  const callNextPage = useNextPage({
-    callback: doRequestNextPage,
-    totalPages,
-  });
+  }, [data, loading]);
 
   const renderItem = ({ item }: { item: IItem }) => (
     <CardCharacter item={item} />
   );
+
+  if (loading) {
+    return (
+      <View style={styles.contentContainer}>
+        <CardCharacterSkeleton />
+        <CardCharacterSkeleton />
+        <CardCharacterSkeleton />
+        <CardCharacterSkeleton />
+        <CardCharacterSkeleton />
+        <CardCharacterSkeleton />
+      </View>
+    );
+  }
 
   return (
     <FlatList
@@ -68,18 +70,15 @@ export default () => {
       initialNumToRender={6}
       ItemSeparatorComponent={() => <View style={styles.divider} />}
       showsVerticalScrollIndicator={false}
-      ListEmptyComponent={
-        <>
-          <CardCharacterSkeleton />
-          <CardCharacterSkeleton />
-          <CardCharacterSkeleton />
-          <CardCharacterSkeleton />
-          <CardCharacterSkeleton />
-        </>
-      }
-      data={mergeData}
+      data={mergedData}
       renderItem={renderItem}
-      onEndReached={callNextPage}
+      onEndReached={() =>
+        fetchMore({
+          variables: {
+            page: nextPage,
+          },
+        })
+      }
       onEndReachedThreshold={0.4}
       keyExtractor={(item: IItem) => item.id}
     />
