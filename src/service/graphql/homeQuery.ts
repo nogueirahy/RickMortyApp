@@ -4,7 +4,7 @@ export const GET_CHARACTERS = gql`
   query getCharacters($page: Int!) {
     characters(page: $page) {
       info {
-        pages
+        next
       }
       results {
         name
